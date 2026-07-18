@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل المنتج - ROVAN</title>
+    <link rel="icon" type="image/ico" href="img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <style>
+        body { direction: rtl; text-align: right; }
+
+        .product-details-page {
+            padding: 40px 0;
+            margin-top: 20px;
+        }
+        .product-details-page .container {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        .product-images {
+            width: 45%;
+        }
+        .product-images .main-img {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            background: #f9f9f9;
+        }
+        .product-images .main-img img {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+        }
+        .product-info {
+            width: 55%;
+        }
+        .product-info h1 {
+            font-size: 26px;
+            margin-bottom: 12px;
+            color: var(--color_heading);
+            line-height: 1.4;
+        }
+        .product-info .stars {
+            margin-bottom: 15px;
+        }
+        .product-info .stars i {
+            color: #f3c017;
+            font-size: 16px;
+        }
+        .product-info .price-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .product-info .current-price {
+            font-size: 32px;
+            color: var(--main_color);
+            font-weight: bold;
+        }
+        .product-info .old-price {
+            font-size: 20px;
+            color: #999;
+            text-decoration: line-through;
+        }
+        .product-info .discount-badge {
+            background: #e51a1a;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        /* Description */
+        .product-info .description {
+            color: var(--p_color);
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-size: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-right: 3px solid var(--main_color);
+        }
+
+        /* Color Selection */
+        .selection-group {
+            margin-bottom: 20px;
+        }
+        .selection-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--color_heading);
+            font-size: 15px;
+        }
+        .color-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .color-swatch {
+            padding: 8px 16px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 13px;
+            background: white;
+            min-width: 60px;
+            text-align: center;
+        }
+        .color-swatch:hover {
+            border-color: var(--main_color);
+            transform: translateY(-2px);
+        }
+        .color-swatch.selected {
+            border-color: var(--main_color);
+            background: var(--main_color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(67, 100, 247, 0.3);
+        }
+
+        /* Size Selection */
+        .size-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .size-btn {
+            min-width: 50px;
+            padding: 10px 16px;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            text-align: center;
+            font-weight: 500;
+        }
+        .size-btn:hover {
+            border-color: var(--main_color);
+            transform: translateY(-2px);
+        }
+        .size-btn.selected {
+            background: var(--main_color);
+            color: white;
+            border-color: var(--main_color);
+            box-shadow: 0 4px 12px rgba(67, 100, 247, 0.3);
+        }
+
+        /* Selected info display */
+        .selected-info {
+            background: #e8f0fe;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: var(--main_color);
+            display: none;
+        }
+        .selected-info.show {
+            display: block;
+        }
+
+        /* Actions */
+        .product-info .actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            align-items: center;
+        }
+        .product-info .quantity-box {
+            display: flex;
+            align-items: center;
+            border: 2px solid var(--border_color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .product-info .quantity-box button {
+            width: 45px;
+            height: 50px;
+            background: var(--bg_color);
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            transition: 0.2s;
+        }
+        .product-info .quantity-box button:hover {
+            background: var(--main_color);
+            color: white;
+        }
+        .product-info .quantity-box input {
+            width: 60px;
+            height: 50px;
+            text-align: center;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .product-info .add-to-cart-btn {
+            flex: 1;
+            background: var(--main_color);
+            color: white;
+            border: 2px solid var(--main_color);
+            padding: 14px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .product-info .add-to-cart-btn:hover {
+            background: transparent;
+            color: var(--main_color);
+        }
+        .product-info .add-to-cart-btn.active {
+            background: #28a745;
+            border-color: #28a745;
+        }
+        .product-info .add-to-cart-btn.active:hover {
+            color: #28a745;
+        }
+        .product-info .add-to-cart-btn:disabled {
+            background: #ccc;
+            border-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .product-meta {
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        .product-meta p {
+            margin-bottom: 10px;
+            color: var(--p_color);
+        }
+        .product-meta p span {
+            color: var(--color_heading);
+            font-weight: 600;
+        }
+        .related-products {
+            margin-top: 60px;
+        }
+        .related-products h2 {
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--main_color);
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        /* Warning message */
+        .selection-warning {
+            color: #e51a1a;
+            font-size: 13px;
+            margin-top: 5px;
+            display: none;
+        }
+        .selection-warning.show {
+            display: block;
+        }
+
+        @media (max-width: 1000px) {
+            .product-details-page .container {
+                flex-direction: column;
+            }
+            .product-images, .product-info {
+                width: 100%;
+            }
+            .related-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        /* Thumbnail Gallery */
+        .thumbnail-gallery {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        .thumbnail {
+            width: 70px;
+            height: 70px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: 0.3s;
+            padding: 3px;
+        }
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .thumbnail:hover, .thumbnail.active {
+            border-color: var(--main_color);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(67, 100, 247, 0.2);
+        }
+        .main-img {
+            position: relative;
+            cursor: pointer;
+        }
+        .zoom-hint {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            opacity: 0;
+            transition: 0.3s;
+        }
+        .main-img:hover .zoom-hint {
+            opacity: 1;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.92);
+            cursor: pointer;
+        }
+        .lightbox-content {
+            position: relative;
+            z-index: 2;
+            max-width: 90vw;
+            max-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-content img {
+            max-width: 85vw;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 8px;
+            animation: lightboxFade 0.3s ease;
+        }
+        @keyframes lightboxFade {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            left: 0;
+            background: rgba(255,255,255,0.15);
+            border: none;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-close:hover {
+            background: rgba(255,255,255,0.3);
+            transform: rotate(90deg);
+        }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.15);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-nav:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        .lightbox-prev { right: -70px; }
+        .lightbox-next { left: -70px; }
+        .lightbox-counter {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 15px;
+            background: rgba(255,255,255,0.15);
+            padding: 6px 18px;
+            border-radius: 20px;
+        }
+
+        @media (max-width: 1000px) {
+            .product-details-page .container {
+                flex-direction: column;
+            }
+            .product-images, .product-info {
+                width: 100%;
+            }
+            .related-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .lightbox-prev { right: 10px; }
+            .lightbox-next { left: 10px; }
+        }
+        @media (max-width: 500px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+            .product-info .actions {
+                flex-direction: column;
+            }
+            .product-info .quantity-box {
+                width: 100%;
+                justify-content: center;
+            }
+            .product-info .add-to-cart-btn {
+                width: 100%;
+            }
+            .thumbnail {
+                width: 55px;
+                height: 55px;
+            }
+        }
+    </style>
+<base target="_parent">
+</head>
+<body>
+
+    <div class="cart">
+        <div class="top_cart">
+            <h3>عناصر السلة : <span class="Count_item_cart">0</span></h3>
+            <span onclick="open_close_cart()" class="close_cart"><i class="fa-regular fa-circle-xmark"></i></span>
+        </div>
+        <div class="items_in_cart" id="cart_items"></div>
+        <div class="botton_cart">
+            <div class="total">
+                <p>الإجمالي</p>
+                <p class="price_cart_toral">0 جنيه</p>
+            </div>
+            <div class="button_cart">
+                <a href="checkout.html" class="btn_cart btn">إتمام الشراء</a>
+                <span onclick="open_close_cart()" class="btn_cart trans_bg btn">مواصلة التسوق</span>
+            </div>
+        </div>
+    </div>    
+
+    <header> 
+        <div class="top_header"> 
+            <div class="container">
+                <a href="index.html" class="logo"><img src="img/logo.png" alt=""></a>
+                <form action="" class="search_box">
+                    <div class="select_box">
+                        <select id="category" name="category">
+                            <option value="All Categories">كل الفئات</option>
+                            <option value="men">رجالي</option>
+                            <option value="women">حريمي</option>
+                            <option value="kids">أطفالي</option>
+                        </select>
+                    </div>
+                    <input type="text" name="search" id="search" placeholder="ابحث عن منتج..." required>
+                    <button type="submit"><i class="fa-brands fa-sistrix"></i></button>
+                </form>
+                <div class="header_icons">
+                    <div class="icon">
+                        <a href="#"><i class="fa-regular fa-heart"><span class="count count_favorite">0</span></i></a>
+                    </div>
+                    <div onclick="open_close_cart()" class="icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="count count_item_header">0</span>
+                    </div>
+                    <span class="state">.</span>
+                </div>
+            </div>
+        </div> 
+
+        <div class="botton_header">
+            <div class="container">
+                <nav class="nav">
+                    <span onclick="open_Menu()" class="open_menu"><i class="fa-solid fa-bars"></i></span>
+                    <div class="category_nav">
+                        <div onclick="Open_Categ_list()" class="category_btn">
+                            <i class="fa-solid fa-bars"></i>
+                            <p>تصفح الفئات</p>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="category_nav_list">
+                            <a href="category.html?cat=men">رجالي</a>
+                            <a href="category.html?cat=women">حريمي</a>
+                            <a href="category.html?cat=kids">أطفالي</a>
+                        </div>
+                    </div>
+                    <ul class="nav_links">
+                        <span onclick="open_Menu()" class="close_menu"><i class="fa-regular fa-circle-xmark"></i></span>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li class="active"><a href="#">المنتج</a></li>
+                        <li><a href="#">المدونة</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="index.html#contact">تواصل معنا</a></li>
+                    </ul>
+                </nav>
+                <div class="login_signup btns" id="auth-buttons">
+                    <a href="login.html" class="btn">تسجيل الدخول <i class="fa-solid fa-right-to-bracket"></i></a>
+                    <a href="signup.html" class="btn">حساب جديد <i class="fa-solid fa-user-plus"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="product-details-page">
+        <div class="container">
+            <div class="product-images">
+                <div class="main-img">
+                    <img id="main-product-img" src="" alt="" onclick="openLightbox()">
+                    <div class="zoom-hint"><i class="fa-solid fa-expand"></i> اضغط للتكبير</div>
+                </div>
+                <div class="thumbnail-gallery" id="thumbnail-gallery">
+                    <!-- Thumbnails injected by JS -->
+                </div>
+            </div>
+            <div class="product-info">
+                <h1 id="product-name">جاري التحميل...</h1>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="price-section">
+                    <span class="current-price" id="product-price">0 جنيه</span>
+                    <span class="old-price" id="product-old-price"></span>
+                    <span class="discount-badge" id="discount-badge" style="display:none;"></span>
+                </div>
+
+                <!-- Description -->
+                <div class="description" id="product-desc">
+                    جاري تحميل وصف المنتج...
+                </div>
+
+                <!-- Color Selection -->
+                <div class="selection-group">
+                    <label><i class="fa-solid fa-palette"></i> اختر اللون:</label>
+                    <div class="color-options" id="color-options">
+                        <!-- Colors injected by JS -->
+                    </div>
+                    <p class="selection-warning" id="color-warning">⚠️ الرجاء اختيار لون</p>
+                </div>
+
+                <!-- Size Selection -->
+                <div class="selection-group">
+                    <label><i class="fa-solid fa-ruler"></i> اختر المقاس:</label>
+                    <div class="size-options" id="size-options">
+                        <!-- Sizes injected by JS -->
+                    </div>
+                    <p class="selection-warning" id="size-warning">⚠️ الرجاء اختيار مقاس</p>
+                </div>
+
+                <!-- Selected Info -->
+                <div class="selected-info" id="selected-info">
+                    <i class="fa-solid fa-check-circle"></i> 
+                    <span id="selected-details"></span>
+                </div>
+
+                <div class="actions">
+                    <div class="quantity-box">
+                        <button onclick="changeQty(-1)">-</button>
+                        <input type="number" id="qty-input" value="1" min="1" max="10" readonly>
+                        <button onclick="changeQty(1)">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" id="add-cart-btn" onclick="addProductToCart()">
+                        <i class="fa-solid fa-cart-shopping"></i> أضف للسلة
+                    </button>
+                </div>
+
+                <div class="product-meta">
+                    <p><span>الفئة:</span> <span id="product-category">-</span></p>
+                    <p><span>التوفر:</span> متوفر في المخزن</p>
+                    <p><span>الشحن:</span> 80 جنيه (مجاني للطلبات +500 جنيه)</p>
+                    <p><span>الإرجاع:</span> استبدال خلال 14 يوم</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="related-products">
+        <div class="container">
+            <h2>منتجات مشابهة</h2>
+            <div class="related-grid" id="related-products-grid"></div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="big_row">
+                <img class="logo_footer" src="img/white_logo.png" alt="">
+                <p>متجر ROVAN للملابس - وجهتك الأولى للأناقة والجودة</p>
+                <div class="icons_footer">
+                    <a href="tel:01094401912"><i class="fa-solid fa-phone"></i></a>
+                    <a href="https://www.facebook.com/rovanprinting"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/rovan_storee?fbclid=IwY2xjawTEnCNleHRuA2FlbQIxMABzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEe4C5lD8vHgvXbLgV8bM0L3JQRnWYqes4CVKSLpU1JlaVe3y7GuXns4EiFknQ_aem_ZC7t0ucL_RwvZdeiTakvxA"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/201094401912"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>تصفح سريع</h4>
+                <div class="links">
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> ملابس رجالي </a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> ملابس حريمي</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> ملابس أطفال</a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>روابط سريعة</h4>
+                <div class="links">
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> حسابك </a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> الإرجاع والاستبدال</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> الشحن والتوصيل</a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>خدمة العملاء</h4>
+                <div class="links">
+                    <a href="about.html"><i class="fa-solid fa-caret-right"></i> من نحن</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> الشروط والأحكام</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> الأسئلة الشائعة</a>
+                </div>
+            </div>
+        </div>
+        <div class="botton_footer">
+            <div class="container">
+                <p>&copy; <span>ROVAN Store.</span> جميع الحقوق محفوظة.</p>
+                <div class="payment_img">
+                    <img src="img/payment_method.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="JS/main.js"></script>
+    <script src="JS/product.js"></script>
+    <script type="module" src="JS/auth.js"></script>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-overlay" onclick="closeLightbox()"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()"><i class="fa-solid fa-xmark"></i></button>
+            <button class="lightbox-nav lightbox-prev" onclick="prevImage()"><i class="fa-solid fa-chevron-right"></i></button>
+            <img id="lightbox-img" src="" alt="">
+            <button class="lightbox-nav lightbox-next" onclick="nextImage()"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="lightbox-counter" id="lightbox-counter">1 / 5</div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إتمام الشراء - ROVAN</title>
+    <link rel="icon" type="image/ico" href="img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <style>
+        body { direction: rtl; text-align: right; }
+    </style>
+<base target="_parent">
+</head>
+<body>
+
+    <div class="cart">
+        <div class="top_cart">
+            <h3>عناصر السلة : <span class="Count_item_cart">0</span></h3>
+            <span onclick="open_close_cart()" class="close_cart"><i class="fa-regular fa-circle-xmark"></i></span>
+        </div>
+        <div class="items_in_cart" id="cart_items"></div>
+        <div class="botton_cart">
+            <div class="total">
+                <p>الإجمالي</p>
+                <p class="price_cart_toral">0 جنيه</p>
+            </div>
+            <div class="button_cart">
+                <span onclick="open_close_cart()" class="btn_cart trans_bg btn">مواصلة التسوق</span>
+            </div>
+        </div>
+    </div>    
+
+    <header> 
+        <div class="top_header"> 
+            <div class="container">
+                <a href="index.html" class="logo"><img src="img/logo.png" alt="ROVAN"></a>
+                <div class="header_icons">
+                    <div class="icon">
+                        <a href="#"><i class="fa-regular fa-heart"><span class="count count_favorite">0</span></i></a>
+                    </div>
+                    <div onclick="open_close_cart()" class="icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="count count_item_header">0</span>
+                    </div>
+                    <span class="state">⁜</span>
+                </div>
+            </div>
+        </div> 
+
+        <div class="botton_header">
+            <div class="container">
+                <nav class="nav">
+                    <span onclick="open_Menu()" class="open_menu"><i class="fa-solid fa-bars"></i></span>
+                    <div class="category_nav">
+                        <div onclick="Open_Categ_list()" class="category_btn">
+                            <i class="fa-solid fa-bars"></i>
+                            <p>تصفح الفئات</p>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="category_nav_list">
+                            <a href="category.html?cat=men">رجالي</a>
+                            <a href="category.html?cat=women">حريمي</a>
+                            <a href="category.html?cat=kids">أطفالي</a>
+                        </div>
+                    </div>
+                    <ul class="nav_links">
+                        <span onclick="open_Menu()" class="close_menu"><i class="fa-regular fa-circle-xmark"></i></span>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li class="active"><a href="#">إتمام الشراء</a></li>
+                        <li><a href="#">المدونة</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="index.html#contact">تواصل معنا</a></li>
+                    </ul>
+                </nav>
+                <div class="login_signup btns" id="auth-buttons">
+                    <a href="login.html" class="btn">تسجيل الدخول <i class="fa-solid fa-right-to-bracket"></i></a>
+                    <a href="signup.html" class="btn">حساب جديد <i class="fa-solid fa-user-plus"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="checkout">
+        <form id="form_contact" method="post" action="https://script.google.com/macros/s/AKfycbx9HYyfBJq7DuCmYzAuARecqCCxy7P-_9tjp3s8YNwqRHNgBbPzRtssMfttRBvbC9MEDQ/exec">
+
+            <input type="hidden" id="items" name="items">
+            <input type="hidden" id="total_Price" name="total_Price">
+            <input type="hidden" id="count_Items" name="count_Items">
+
+            <div class="container">
+                <div class="ordersummary">
+                    <h1>ملخص الطلب</h1>
+
+                    <div class="items" id="checkout_items">
+                        <!-- Products loaded from localStorage -->
+                    </div>
+
+                    <div class="bottom_summary">
+                        <div class="shop_table">
+                            <p>المجموع الفرعي :</p>
+                            <span class="subtotal_checkout">0 جنيه</span>
+                        </div>
+
+                        <div class="shop_table">
+                            <p>الشحن :</p>
+                            <span>80 جنيه</span>
+                        </div>
+
+                        <div class="shop_table">
+                            <p>الإجمالي :</p>
+                            <span class="total_checkout">0 جنيه</span>
+                        </div>
+
+                        <div class="button_div">
+                            <button type="submit">تأكيد الطلب</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="input_info">
+                <div class="address">
+                    <h2>عنوان التوصيل</h2>
+                    <div class="inputs">
+
+                        <label>الاسم الكامل</label>
+                        <input type="text" placeholder="أدخل اسمك الكامل" name="Name" required>
+
+                        <label>البريد الإلكتروني</label>
+                        <input type="email" placeholder="أدخل بريدك الإلكتروني" name="Email" required>
+
+                        <label>رقم الهاتف</label>
+                        <input type="tel" placeholder="أدخل رقم هاتفك" name="phone" required>
+
+                        <label>العنوان بالتفصيل</label>
+                        <input type="text" placeholder="المدينة، الحي، الشارع، رقم العمارة" name="Address" required>
+
+                    </div>
+                </div>   
+                <div class="coupon">
+                    <h2>كوبون خصم</h2>
+                    <div class="inputs">
+                      <label>كود الكوبون</label>
+                      <input type="text" placeholder="أدخل كود الخصم">
+                    </div>  
+                    <div class="btn_coupon">
+                        <button type="button">تطبيق الخصم</button>
+                    </div>  
+
+                </div>
+
+
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="big_row">
+                <img class="logo_footer" src="img/white_logo.png" alt="">
+                <p>متجر ROVAN للملابس - وجهتك الأولى للأناقة والجودة</p>
+                <div class="icons_footer">
+                    <a href="tel:01094401912"><i class="fa-solid fa-phone"></i></a>
+                    <a href="https://www.facebook.com/rovanprinting"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/rovan_storee"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/201094401912"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>تصفح سريع</h4>
+                <div class="links">
+                    <a href="category.html?cat=men"><i class="fa-solid fa-caret-right"></i> ملابس رجالي </a>
+                    <a href="category.html?cat=women"><i class="fa-solid fa-caret-right"></i> ملابس حريمي</a>
+                    <a href="category.html?cat=kids"><i class="fa-solid fa-caret-right"></i> ملابس أطفال</a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>روابط سريعة</h4>
+                <div class="links">
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> حسابك </a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> الإرجاع والاستبدال</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> الشحن والتوصيل</a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>خدمة العملاء</h4>
+                <div class="links">
+                    <a href="about.html"><i class="fa-solid fa-caret-right"></i> من نحن</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> الشروط والأحكام</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> الأسئلة الشائعة</a>
+                </div>
+            </div>
+        </div>
+        <div class="botton_footer">
+            <div class="container">
+                <p>&copy; <span>ROVAN Store.</span> جميع الحقوق محفوظة.</p>
+                <div class="payment_img">
+                    <img src="img/payment_method.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="JS/main.js"></script>
+    <script src="JS/submit_checkout.js"></script>
+    <script type="module" src="JS/auth.js"></script>
+</body>
+</html>

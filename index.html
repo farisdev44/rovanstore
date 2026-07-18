@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROVAN - متجر الملابس</title>
+    <link rel="icon" type="image/ico" href="img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="CSS/style.css">
+    <style>
+        /* RTL fixes */
+        body { direction: rtl; text-align: right; }
+        .product .img_product a, .product .name_product a { display: block; position: relative; z-index: 2; }
+        .product .icons { position: relative; z-index: 3; }
+        .btn_add_cart { cursor: pointer; user-select: none; }
+
+        /* Color swatches */
+        .color-options { display: flex; gap: 8px; margin: 10px 0; flex-wrap: wrap; }
+        .color-swatch {
+            width: 28px; height: 28px; border-radius: 50%; border: 2px solid #ddd;
+            cursor: pointer; transition: 0.2s; position: relative;
+        }
+        .color-swatch:hover, .color-swatch.selected { border-color: #4364f7; transform: scale(1.15); }
+        .color-swatch.selected::after {
+            content: '✓'; position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%); color: white; font-size: 12px; font-weight: bold;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Size options */
+        .size-options { display: flex; gap: 8px; margin: 10px 0; flex-wrap: wrap; }
+        .size-btn {
+            min-width: 40px; padding: 6px 12px; border: 1px solid #ddd;
+            background: white; border-radius: 4px; cursor: pointer;
+            font-size: 13px; transition: 0.2s; text-align: center;
+        }
+        .size-btn:hover, .size-btn.selected {
+            background: #4364f7; color: white; border-color: #4364f7;
+        }
+
+        /* Category badges */
+        .cat-badge {
+            position: absolute; top: 10px; left: 10px;
+            background: #4364f7; color: white; padding: 4px 12px;
+            border-radius: 20px; font-size: 12px; z-index: 2;
+        }
+        .cat-badge.women { background: #e91e63; }
+        .cat-badge.kids { background: #ff9800; }
+    </style>
+<base target="_parent">
+</head>
+<body>
+
+    <div class="cart">
+        <div class="top_cart">
+            <h3>عناصر السلة : <span class="Count_item_cart">0</span></h3>
+            <span onclick="open_close_cart()" class="close_cart"><i class="fa-regular fa-circle-xmark"></i></span>
+        </div>
+        <div class="items_in_cart" id="cart_items"></div>
+        <div class="botton_cart">
+            <div class="total">
+                <p>الإجمالي</p>
+                <p class="price_cart_toral">0 جنيه</p>
+            </div>
+            <div class="button_cart">
+                <a href="checkout.html" class="btn_cart btn">إتمام الشراء</a>
+                <span onclick="open_close_cart()" class="btn_cart trans_bg btn">مواصلة التسوق</span>
+            </div>
+        </div>
+    </div>    
+
+    <header> 
+        <div class="top_header"> 
+            <div class="container">
+                <a href="index.html" class="logo"><img src="img/logo.png" alt=""></a>
+                <form action="" class="search_box">
+                    <div class="select_box">
+                        <select id="category" name="category">
+                            <option value="All Categories">كل الفئات</option>
+                            <option value="men">رجالي</option>
+                            <option value="women">حريمي</option>
+                            <option value="kids">أطفالي</option>
+                        </select>
+                    </div>
+                    <input type="text" name="search" id="search" placeholder="ابحث عن منتج..." required>
+                    <button type="submit"><i class="fa-brands fa-sistrix"></i></button>
+                </form>
+                <div class="header_icons">
+                    <div class="icon">
+                        <a href="#"><i class="fa-regular fa-heart"><span class="count count_favorite">0</span></i></a>
+                    </div>
+                    <div onclick="open_close_cart()" class="icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="count count_item_header">0</span>
+                    </div>
+                    <span class="state">⁜</span>
+                </div>
+            </div>
+        </div> 
+
+        <div class="botton_header">
+            <div class="container">
+                <nav class="nav">
+                    <span onclick="open_Menu()" class="open_menu"><i class="fa-solid fa-bars"></i></span>
+                    <div class="category_nav">
+                        <div onclick="Open_Categ_list()" class="category_btn">
+                            <i class="fa-solid fa-bars"></i>
+                            <p>تصفح الفئات</p>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="category_nav_list">
+                            <a href="category.html?cat=men">رجالي</a>
+                            <a href="category.html?cat=women">حريمي</a>
+                            <a href="category.html?cat=kids">أطفالي</a>
+                        </div>
+                    </div>
+                    <ul class="nav_links">
+                        <span onclick="open_Menu()" class="close_menu"><i class="fa-regular fa-circle-xmark"></i></span>
+                        <li class="active"><a href="index.html">الرئيسية</a></li>
+                        <li><a href="#">المدونة</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="#contact">تواصل معنا</a></li>
+                    </ul>
+                </nav>
+                <div class="login_signup btns" id="auth-buttons">
+                    <a href="login.html" class="btn">تسجيل الدخول <i class="fa-solid fa-right-to-bracket"></i></a>
+                    <a href="signup.html" class="btn">حساب جديد <i class="fa-solid fa-user-plus"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="slider">
+        <div class="container">
+            <div class="slide-swp mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><a href="#"><img src="img/banner_home1.png" alt=""></a></div>
+                    <div class="swiper-slide"><a href="product.html?id=11"><img src="img/banner_home2.png" alt=""></a></div>
+                    <div class="swiper-slide"><a href="#"><img src="img/banner_home4.png" alt=""></a></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="banner_2">
+                <img src="img/banner_home3.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="banners_4">
+        <div class="container">
+            <div class="box">
+                <a href="#" class="link_btn"></a>
+                <img src="img/banner3_1.png" alt="">
+                <div class="text">
+                    <h5>تخفيضات الصيف</h5>
+                    <h5>خصومات حصرية</h5>
+                    <div class="sale"><p>خصم<br>حتى</p><span>70%</span></div>
+                    <h6>تسوق الآن</h6>
+                </div>
+            </div>
+            <div class="box">
+                <a href="#" class="link_btn"></a>
+                <img src="img/banner3_2.png" alt="">
+                <div class="text">
+                    <h5>ملابس رجالي</h5>
+                    <h5>أحدث التشكيلات</h5>
+                    <div class="sale"><p>خصم<br>حتى</p><span>50%</span></div>
+                    <h6>تسوق الآن</h6>
+                </div>
+            </div>
+            <div class="box">
+                <a href="#" class="link_btn"></a>
+                <img src="img/banner3_2.png" alt="">
+                <div class="text">
+                    <h5>ملابس حريمي</h5>
+                    <h5>أناقة لا تنتهي</h5>
+                    <div class="sale"><p>خصم<br>حتى</p><span>60%</span></div>
+                    <h6>تسوق الآن</h6>
+                </div>
+            </div>
+            <div class="box">
+                <a href="#" class="link_btn"></a>
+                <img src="img/banner3_2.png" alt="">
+                <div class="text">
+                    <h5>ملابس أطفال</h5>
+                    <h5>راحة وأمان</h5>
+                    <div class="sale"><p>خصم<br>حتى</p><span>40%</span></div>
+                    <h6>تسوق الآن</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slider_products slide" id="HOT-DEALS">
+        <div class="container">
+            <div class="slide_product mySwiper">
+                <div class="top_slide"><h2><i class="fa-solid fa-fire"></i> عروض حصرية</h2></div>
+                <div class="products swiper-wrapper" id="swiper_items_sale"></div>
+            </div>        
+        </div>
+    </div>
+
+    <div class="banners">
+        <div class="container">
+            <div class="banners_boxs banner_2_img">
+                <a href="product.html?id=11" class="box"><img src="img/banner_box1.jpg" alt=""></a>
+                <a href="#" class="box"><img src="img/banner_box5.jpg" alt=""></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="slider_products slide" id="MEN">
+        <div class="container">
+            <div class="slide_product mySwiper">
+                <div class="top_slide"><h2><i class="fa-solid fa-mars"></i> رجالي</h2></div>
+                <div class="products swiper-wrapper" id="swiper_men"></div>
+            </div>        
+        </div>
+    </div>
+
+    <div class="slider_products slide" id="WOMEN">
+        <div class="container">
+            <div class="slide_product mySwiper">
+                <div class="top_slide"><h2><i class="fa-solid fa-venus"></i> حريمي</h2></div>
+                <div class="products swiper-wrapper" id="swiper_women"></div>
+            </div>        
+        </div>
+    </div>
+
+    <div class="slider_products slide" id="KIDS">
+        <div class="container">
+            <div class="slide_product mySwiper">
+                <div class="top_slide"><h2><i class="fa-solid fa-child"></i> أطفالي</h2></div>
+                <div class="products swiper-wrapper" id="swiper_kids"></div>
+            </div>        
+        </div>
+    </div>
+
+    <div class="banners">
+        <div class="container">
+            <div class="banners_boxs banner_3_img">
+                <a href="product.html?id=11" class="box"><img src="img/banner_box1.jpg" alt="ROVAN"></a>
+                <a href="#" class="box"><img src="img/banner_box2.jpg" alt="ROVAN"></a>
+                <a href="#" class="box"><img src="img/banner_box3.jpg" alt="ROVAN"></a>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="big_row">
+                <img class="logo_footer" src="img/white_logo.png" alt="">
+                <p>متجر ROVAN للملابس - وجهتك الأولى للأناقة والجودة</p>
+                <div class="icons_footer">
+                    <a href="tel:01094401912"><i class="fa-solid fa-phone"></i></a>
+                    <a href="https://www.facebook.com/rovanprinting"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/rovan_storee"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/201094401912"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>تصفح سريع</h4>
+                <div class="links">
+                    <a href="category.html?cat=men"><i class="fa-solid fa-caret-right"></i> ملابس رجالي </a>
+                    <a href="category.html?cat=women"><i class="fa-solid fa-caret-right"></i> ملابس حريمي</a>
+                    <a href="category.html?cat=kids"><i class="fa-solid fa-caret-right"></i> ملابس أطفال</a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>روابط سريعة</h4>
+                <div class="links">
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> حسابك </a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> الإرجاع والاستبدال</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> الشحن والتوصيل</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> تتبع الطلب</a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>خدمة العملاء</h4>
+                <div class="links">
+                    <a href="about.html"><i class="fa-solid fa-caret-right"></i> من نحن</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> الشروط والأحكام</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> سياسة الخصوصية</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> الأسئلة الشائعة</a>
+                </div>
+            </div>
+        </div>
+        <div class="botton_footer">
+            <div class="container">
+                <p>&copy; <span>ROVAN Store.</span> جميع الحقوق محفوظة.</p>
+                <div class="payment_img">
+                    <img src="img/payment_method.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.js"></script>
+    <script src="JS/swiper.js"></script>
+    <script src="JS/items_home.js"></script>
+    <script src="JS/main.js"></script>
+    <script type="module" src="JS/auth.js"></script>
+</body>
+</html>

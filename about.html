@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>من نحن - ROVAN</title>
+    <link rel="icon" type="image/ico" href="img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <style>
+        /* ===== ABOUT US PAGE - STANDALONE CSS ===== */
+/* Completely independent - no project dependencies */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ===== CSS VARIABLES ===== */
+:root {
+    --primary: #4364f7;
+    --primary-dark: #2a4fd8;
+    --primary-light: #6b8cff;
+    --primary-glow: rgba(67, 100, 247, 0.08);
+    --accent: #e91e63;
+    --accent-light: #f8bbd0;
+    --success: #28a745;
+    --text-dark: #0f172a;
+    --text-medium: #475569;
+    --text-light: #64748b;
+    --text-muted: #94a3b8;
+    --border: #e2e8f0;
+    --bg-page: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-section: #f1f5f9;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
+    --shadow-lg: 0 10px 40px rgba(0,0,0,0.08);
+    --shadow-xl: 0 25px 80px rgba(0,0,0,0.12);
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    color: var(--text-dark);
+    background: var(--bg-page);
+    direction: rtl;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-base);
+}
+
+/* ===== HERO SECTION ===== */
+.ab-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #334155 100%);
+}
+
+.ab-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></svg>');
+    background-size: 80px 80px;
+    opacity: 0.5;
+}
+
+.ab-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200%;
+    height: 200px;
+    background: var(--bg-page);
+    border-radius: 50% 50% 0 0;
+}
+
+.ab-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 80px 24px 120px;
+    max-width: 800px;
+}
+
+.ab-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(67, 100, 247, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(67, 100, 247, 0.3);
+    color: var(--primary-light);
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    animation: ab-fadeInDown 0.6s ease;
+}
+
+.ab-hero h1 {
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    animation: ab-fadeInUp 0.7s ease 0.1s both;
+}
+
+.ab-hero h1 span {
+    background: linear-gradient(135deg, var(--primary-light), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.ab-hero p {
+    color: rgba(255,255,255,0.7);
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto;
+    animation: ab-fadeInUp 0.7s ease 0.2s both;
+}
+
+@keyframes ab-fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ab-fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== CONTAINER ===== */
+.ab-container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* ===== ABOUT SECTION ===== */
+.ab-about-section {
+    padding: 80px 0;
+    position: relative;
+}
+
+.ab-about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* Image Side */
+.ab-image-wrapper {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+}
+
+.ab-image-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: linear-gradient(135deg, var(--primary-glow), rgba(233,30,99,0.05));
+    border-radius: var(--radius-xl);
+    z-index: -1;
+    animation: ab-pulse-glow 4s ease-in-out infinite;
+}
+
+@keyframes ab-pulse-glow {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.02); }
+}
+
+.ab-image-wrapper img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    transition: var(--transition-slow);
+}
+
+.ab-image-wrapper:hover img {
+    transform: scale(1.03);
+}
+
+.ab-image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px 30px 30px;
+    background: linear-gradient(to top, rgba(15,23,42,0.9), transparent);
+    color: white;
+}
+
+.ab-image-overlay h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.ab-image-overlay p {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.ab-experience-badge {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    padding: 20px 24px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    z-index: 2;
+    animation: ab-float 3s ease-in-out infinite;
+}
+
+@keyframes ab-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.ab-experience-badge .number {
+    font-size: 32px;
+    font-weight: 900;
+    display: block;
+    line-height: 1;
+}
+
+.ab-experience-badge .text {
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+/* Content Side */
+.ab-content h2 {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.ab-content .ab-subtitle {
+    color: var(--primary);
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ab-content .ab-subtitle::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), transparent);
+    max-width: 60px;
+}
+
+.ab-content p {
+    color: var(--text-medium);
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.ab-features-list {
+    list-style: none;
+    margin: 28px 0;
+}
+
+.ab-features-list li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0;
+    color: var(--text-dark);
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+}
+
+.ab-features-list li:last-child {
+    border-bottom: none;
+}
+
+.ab-features-list li i {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--primary-glow), rgba(67,100,247,0.15));
+    color: var(--primary);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.ab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    border-radius: var(--radius-md);
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 10px;
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.ab-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+}
+
+.ab-btn:hover::before {
+    left: 100%;
+}
+
+.ab-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.ab-btn i {
+    font-size: 14px;
+    transition: var(--transition-base);
+}
+
+.ab-btn:hover i {
+    transform: translateX(-4px);
+}
+
+/* ===== STATS SECTION ===== */
+.ab-stats {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.ab-stats::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="60" r="3" fill="rgba(255,255,255,0.08)"/><circle cx="40" cy="80" r="2" fill="rgba(255,255,255,0.06)"/></svg>');
+    background-size: 100px 100px;
+}
+
+.ab-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.ab-stat-item {
+    text-align: center;
+    color: white;
+    padding: 20px;
+    position: relative;
+}
+
+.ab-stat-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 20%;
+    bottom: 20%;
+    width: 1px;
+    background: rgba(255,255,255,0.15);
+}
+
+.ab-stat-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 22px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.ab-stat-number {
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 6px;
+    line-height: 1;
+}
+
+.ab-stat-label {
+    font-size: 14px;
+    opacity: 0.85;
+    font-weight: 500;
+}
+
+/* ===== VALUES SECTION ===== */
+.ab-values {
+    padding: 80px 0;
+    background: var(--bg-section);
+}
+
+.ab-section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.ab-section-header h2 {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+}
+
+.ab-section-header p {
+    color: var(--text-light);
+    font-size: 16px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.ab-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.ab-value-card {
+    background: var(--bg-card);
+    padding: 36px 28px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    transition: var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.ab-value-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transform: scaleX(0);
+    transition: var(--transition-base);
+    transform-origin: right;
+}
+
+.ab-value-card:hover::before {
+    transform: scaleX(1);
+}
+
+.ab-value-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: transparent;
+}
+
+.ab-value-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-glow), rgba(67,100,247,0.12));
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: var(--primary);
+    transition: var(--transition-base);
+}
+
+.ab-value-card:hover .ab-value-icon {
+    transform: scale(1.1) rotate(-5deg);
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+}
+
+.ab-value-card h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.ab-value-card p {
+    color: var(--text-light);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* ===== TEAM SECTION ===== */
+.ab-team {
+    padding: 80px 0;
+}
+
+.ab-team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.ab-team-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: var(--transition-base);
+    text-align: center;
+}
+
+.ab-team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.ab-team-img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    transition: var(--transition-slow);
+}
+
+.ab-team-card:hover .ab-team-img {
+    transform: scale(1.05);
+}
+
+.ab-team-info {
+    padding: 24px 20px;
+}
+
+.ab-team-info h4 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.ab-team-info p {
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+.ab-team-social {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.ab-team-social a {
+    width: 36px;
+    height: 36px;
+    background: var(--bg-section);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-medium);
+    font-size: 14px;
+    transition: var(--transition-base);
+}
+
+.ab-team-social a:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* ===== CTA SECTION ===== */
+.ab-cta {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.ab-cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 500px;
+    height: 500px;
+    background: rgba(67, 100, 247, 0.1);
+    border-radius: 50%;
+    filter: blur(80px);
+}
+
+.ab-cta-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.ab-cta h2 {
+    color: white;
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 16px;
+}
+
+.ab-cta p {
+    color: rgba(255,255,255,0.7);
+    font-size: 17px;
+    margin-bottom: 32px;
+    line-height: 1.8;
+}
+
+.ab-cta-btns {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.ab-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    border-radius: var(--radius-md);
+    font-size: 15px;
+    font-weight: 700;
+    transition: var(--transition-base);
+}
+
+.ab-cta-btn.primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    box-shadow: 0 8px 25px rgba(67,100,247,0.4);
+}
+
+.ab-cta-btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(67,100,247,0.5);
+}
+
+.ab-cta-btn.outline {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.ab-cta-btn.outline:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.5);
+    transform: translateY(-3px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+    .ab-about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .ab-image-wrapper {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .ab-content {
+        text-align: center;
+    }
+    .ab-content .ab-subtitle {
+        justify-content: center;
+    }
+    .ab-content .ab-subtitle::after {
+        display: none;
+    }
+    .ab-features-list {
+        max-width: 400px;
+        margin: 28px auto;
+    }
+    .ab-values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .ab-team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .ab-hero h1 {
+        font-size: 32px;
+    }
+    .ab-hero p {
+        font-size: 16px;
+    }
+    .ab-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .ab-stat-item:not(:last-child)::after {
+        display: none;
+    }
+    .ab-values-grid {
+        grid-template-columns: 1fr;
+    }
+    .ab-team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .ab-cta h2 {
+        font-size: 26px;
+    }
+    .ab-content h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ab-hero h1 {
+        font-size: 26px;
+    }
+    .ab-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .ab-team-grid {
+        grid-template-columns: 1fr;
+    }
+    .ab-experience-badge {
+        padding: 14px 18px;
+        top: -10px;
+        left: -10px;
+    }
+    .ab-experience-badge .number {
+        font-size: 24px;
+    }
+    .ab-image-wrapper img {
+        height: 350px;
+    }
+    .ab-cta-btns {
+        flex-direction: column;
+        align-items: center;
+    }
+    .ab-cta-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+    </style>
+<base target="_parent">
+</head>
+<body>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="ab-hero">
+        <div class="ab-hero-content">
+            <div class="ab-hero-badge">
+                <i class="fa-solid fa-star"></i>
+                متجر ROVAN للملابس
+            </div>
+            <h1>نحن نصنع <span>الأناقة</span><br>بأجود الخامات</h1>
+            <p>
+                منذ تأسيسنا، نسعى لتقديم تجربة تسوق فريدة تجمع بين الجودة العالية والأسعار المناسبة، 
+                لنكون وجهتك الأولى للأناقة والتميز.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="ab-about-section">
+        <div class="ab-container">
+            <div class="ab-about-grid">
+                <!-- Image Side -->
+                <div class="ab-image-wrapper">
+                    <div class="ab-experience-badge">
+                        <span class="number">+5</span>
+                        <span class="text">سنوات خبرة</span>
+                    </div>
+                    <img src="img/about-store.png" alt="متجر ROVAN" onerror="this.src='img/logo.png'">
+                    <div class="ab-image-overlay">
+                        <h3>ROVAN Store</h3>
+                        <p>وجهتك الأولى للأناقة</p>
+                    </div>
+                </div>
+
+                <!-- Content Side -->
+                <div class="ab-content">
+                    <div class="ab-subtitle">
+                        <i class="fa-solid fa-circle-info"></i>
+                        قصتنا
+                    </div>
+                    <h2>نحن ROVAN<br>متجر الملابس الرائد</h2>
+                    <p>
+                        تأسس متجر ROVAN عام 2020 بهدف تقديم ملابس عصرية بجودة عالية وأسعار منافسة. 
+                        بدأنا كمتجر صغير على الإنترنت، ونمت بفضل ثقة عملائنا الكرام لنصبح واحداً من أبرز وجهات التسوق في مصر.
+                    </p>
+                    <p>
+                        نؤمن بأن الأناقة حق للجميع، لذلك نقدم تشكيلة واسعة تلبي جميع الأذواق والميزانيات. 
+                        من الملابس الرجالية والحريمي إلى ملابس الأطفال، نحرص على اختيار كل قطعة بعناية فائقة.
+                    </p>
+
+                    <ul class="ab-features-list">
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            خامات مستوردة 100% بجودة مضمونة
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            أسعار تنافسية مع عروض مستمرة
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            شحن سريع لجميع المحافظات
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            إرجاع واستبدال خلال 14 يوم
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            دعم فني على مدار الساعة
+                        </li>
+                    </ul>
+
+                    <a href="index.html" class="ab-btn">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        تصفح منتجاتنا
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STATS SECTION ===== -->
+    <section class="ab-stats">
+        <div class="ab-container">
+            <div class="ab-stats-grid">
+                <div class="ab-stat-item">
+                    <div class="ab-stat-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="ab-stat-number">+10K</div>
+                    <div class="ab-stat-label">عميل سعيد</div>
+                </div>
+                <div class="ab-stat-item">
+                    <div class="ab-stat-icon">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <div class="ab-stat-number">+500</div>
+                    <div class="ab-stat-label">منتج متنوع</div>
+                </div>
+                <div class="ab-stat-item">
+                    <div class="ab-stat-icon">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <div class="ab-stat-number">+25</div>
+                    <div class="ab-stat-label">محافظة نغطيها</div>
+                </div>
+                <div class="ab-stat-item">
+                    <div class="ab-stat-icon">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="ab-stat-number">99%</div>
+                    <div class="ab-stat-label">نسبة الرضا</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VALUES SECTION ===== -->
+    <section class="ab-values">
+        <div class="ab-container">
+            <div class="ab-section-header">
+                <h2>قيمنا</h2>
+                <p>المبادئ التي نلتزم بها في كل خطوة</p>
+            </div>
+            <div class="ab-values-grid">
+                <div class="ab-value-card">
+                    <div class="ab-value-icon">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                    <h3>الجودة أولاً</h3>
+                    <p>
+                        نختار خاماتنا بعناية فائقة من أفضل المصادر العالمية، 
+                        ونخضع كل منتج لاختبارات جودة صارمة قبل عرضه للبيع.
+                    </p>
+                </div>
+                <div class="ab-value-card">
+                    <div class="ab-value-icon">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    </div>
+                    <h3>الأسعار العادلة</h3>
+                    <p>
+                        نؤمن بأن الجودة لا يجب أن تكون باهظة الثمن. 
+                        نقدم أفضل الأسعار مع الحفاظ على المعايير العالمية.
+                    </p>
+                </div>
+                <div class="ab-value-card">
+                    <div class="ab-value-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3>خدمة متميزة</h3>
+                    <p>
+                        فريق خدمة العملاء جاهز على مدار الساعة للإجابة على استفساراتكم 
+                        وحل أي مشكلة تواجهكم بسرعة وكفاءة.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TEAM SECTION ===== -->
+    <section class="ab-team">
+        <div class="ab-container">
+            <div class="ab-section-header">
+                <h2>فريقنا</h2>
+                <p>الأشخاص اللي بيخلوا ROVAN مميز</p>
+            </div>
+            <div class="ab-team-grid">
+                <div class="ab-team-card">
+                    <img src="img/team1.png" alt="فريق ROVAN" class="ab-team-img" onerror="this.src='img/logo.png'">
+                    <div class="ab-team-info">
+                        <h4>فارس محمد</h4>
+                        <p>المؤسس والمدير التنفيذي</p>
+                        <div class="ab-team-social">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="ab-cta">
+        <div class="ab-container">
+            <div class="ab-cta-content">
+                <h2>جاهز تتسوق معانا؟</h2>
+                <p>
+                    اكتشف تشكيلتنا الواسعة من الملابس الرجالية والحريمي وأطفال. 
+                    عروض حصرية وخصومات تصل إلى 70% على منتجات مختارة.
+                </p>
+                <div class="ab-cta-btns">
+                    <a href="index.html" class="ab-cta-btn primary">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        ابدأ التسوق
+                    </a>
+                    <a href="category.html?cat=men" class="ab-cta-btn outline">
+                        <i class="fa-solid fa-shirt"></i>
+                        تصفح الفئات
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

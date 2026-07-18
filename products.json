@@ -1,0 +1,403 @@
+[
+  {
+    "id": 0,
+    "img": "img/product/DSC08923.jpg",
+    "images": [
+      "img/product/DSC08923.jpg",
+      "img/product/DSC08922.jpg",
+      "img/product/DSC00296.jpg",
+      "img/product/DSC00300.jpg"
+    ],
+    "name": "سوت ZARA  بنطلون وقميص  نص كم",
+    "price": 780,
+    "catetory": "men",
+    "description": "الخامه جاكار قطن 100%  تقفيل محترم جدا ب لونين أساسيين أبيض وأسود \n\nالموديل تريند 2025  شيك جدا ويليق في أكتر من مناسبه مريح وسهل فاللبس \n\nالسوت ب تيكتات ZARA نسخه طبق الأصل من القطعه ال ORIGINAL   بنفس التلبيس العالمي \n\nمناسب جدا لجو المصايف والسهرات , خروجه مع صحابك  شيك وسهل ف لبسه جاي بمقاسات مظبوطه و FIT شيك ",
+    "colors": [
+      "أبيض",
+      "أسود"
+    ],
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "old_price": 1000
+  },
+  {
+    "id": 1,
+    "img": "img/product/IMG_20260611_033724.png",
+    "images": [
+      "img/product/IMG_20260611_033724.png",
+      "img/product/IMG_20260611_033547.png",
+      "img/product/IMG_20260611_033648.png",
+      "img/product/IMG_20260611_033756.png",
+      "img/product/IMG_20260611_033823.png"
+    ],
+    "name": "suit قميص وشورت سوفت مستورد",
+    "price": 650,
+    "catetory": "men",
+    "description": "✅ خامة سوفت بابل مستورد فول ليكرا\n\n✅ معالجة ضد الانكماش (0% انكماش)\n\n✅ تلبيس أوفر سايز ستايل أمريكي\n\n✅ مريحة للحركة ومناسبة للاستخدام اليومي والخروجات\n\n",
+    "colors": [
+      "اسود",
+      "بيج",
+      "رمادي",
+      "نبيتي",
+      "كحلي"
+    ],
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "old_price": 850
+  },
+  {
+    "id": 2,
+    "img": "img/product/WhatsApp Image 2025-05-28 at 15.26.04.jpeg",
+    "images": [
+      "img/product/WhatsApp Image 2025-05-28 at 15.26.04.jpeg"
+    ],
+    "name": "طقم أطفالي قطعتين",
+    "price": 250,
+    "catetory": "kids",
+    "description": "طقم أطفالي  قطعتين  يليق أطفالي اولادي وبناتي \n\nتيشرت خامه برسوله والشورت خامه بيكا \n\nموديل شيك جدا لطفلك مريح وتلبيس محترم بألوان شيك جدا\n\nالمقاسات بتلبس من سنتين إلى 9سنوات",
+    "colors": [
+      "أصفر",
+      "رمادي",
+      "كشمير"
+    ],
+    "sizes": [
+      "2",
+      "4",
+      "6",
+      "8"
+    ]
+  },
+  {
+    "id": 3,
+    "img": "img/product/DSC07663.jpg",
+    "images": [
+      "img/product/DSC07663.jpg",
+      "img/product/1I7A7647.jpg",
+      "img/product/1I7A7541.jpg",
+      "img/product/1I7A7613.jpg",
+      "img/product/1I7A7628.jpg",
+      "img/product/DSC07707.jpg",
+      "img/product/DSC07732.jpg"
+    ],
+    "name": "عبايه اطفالي كابتشو",
+    "price": 370,
+    "catetory": "kids",
+    "description": "الخامه قطن ببولين مستورد  100%\n\nمعالج ضد الوبر والانكماش ولون ثابت \n\nالشريط تطريز فرزاتشي تقفيل محترم موديل شيك جداً طري ومريح",
+    "colors": [
+      "ابيض",
+      "اسود",
+      "بترولي",
+      "رمادي",
+      "بيج"
+    ],
+    "sizes": [
+      "سنتين",
+      "4 سنوات",
+      "6 سنوات",
+      "8 سنوات",
+      "10 سنوات",
+      "12 سنة"
+    ],
+    "old_price": 500
+  },
+  {
+    "id": 4,
+    "img": "img/product/IMG_6783.jpg",
+    "images": [
+      "img/product/IMG_6783.jpg",
+      "img/product/IMG_6789.jpg",
+      "img/product/IMG_6784.jpg",
+      "img/product/IMG_6795.jpg"
+    ],
+    "name": "سوت مارسيليا تيشرت بولو سوسته وشورت",
+    "price": 550,
+    "catetory": "men",
+    "description": "سوت تيشرت خامه مارسيليا   تيشرت سوسته  شيك جدا  وشورت مارسيليا  الخامه طريه ومريحه جدا وفي نفس الوقت شيك وتريند  السنه \n\nبالوان تريندي تلبيس محترم   يليق علي أكتر من  out fit   تقفيل محترم",
+    "colors": [
+      "أبيض",
+      "أسود",
+      "زيتي",
+      "بيج"
+    ],
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "old_price": 800
+  },
+  {
+    "id": 5,
+    "img": "img/product/Copy of Copy of 278A7981.JPG",
+    "images": [
+      "img/product/Copy of Copy of 278A7981.JPG",
+      "img/product/Copy of Copy of 278A7978.JPG",
+      "img/product/Copy of Copy of 278A7984.JPG"
+    ],
+    "name": "Ocean Breeze Trousers",
+    "price": 690,
+    "catetory": "women",
+    "description": "القطعة اللي هتخلي صيفك أسهل وأشيك. البنطلون  (Wide-leg) بنقشاته البحرية المرحة (أسماك، سلاحف، وأصداف) مش بس مريح، ده كمان كل قطعة  فريدة ومختلفة .\n\n​صممناه بأفضل خامات وأفصل تقفيل عشان يريحك طول اليوم، ومعاه جيوب عملية. الخامة بتاعته خفيفة جداً، بتتنفس، ومثالية لأيام الشاطئ، قعدة البسين، أو حتى خروجة سريعة. والأحلى إنه سهل جداً في الغسيل ومقاسات مظبوطه ",
+    "colors": [
+      "أبيض"
+    ],
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ]
+  },
+  {
+    "id": 6,
+    "img": "img/product/DSC03408.png",
+    "images": [
+      "img/product/DSC03408.png",
+      "img/product/DSC03488.png",
+      "img/product/DSC03490.png",
+      "img/product/DSC03492.png",
+      "img/product/DSC03491.png"
+    ],
+    "name": "كوتشى Alexander McQueen",
+    "price": 550,
+    "catetory": "men",
+    "description": "تألق بإطلالة مميزة تجمع بين الفخامة والراحة المطلقة مع هذا الحذاء العصري، المصمم خصيصاً ليناسب استخدامك اليومي ويمنحك مظهراً جذاباً يلفت الأنظار.",
+    "colors": [
+      "اسود",
+      "أبيض",
+      "ابيض مطعم رمادي",
+      "ابيض تطعيم اسود",
+      "اسود تطعيم ابيض"
+    ],
+    "sizes": [
+      "41",
+      "42",
+      "43",
+      "44",
+      "45"
+    ]
+  },
+  {
+    "id": 7,
+    "img": "img/product/IMG-20260608-WA0003.jpg",
+    "images": [
+      "img/product/IMG-20260608-WA0003.jpg",
+      "img/product/IMG_1311.JPG",
+      "img/product/IMG_1312.jpg"
+    ],
+    "name": "Bls035 Panda suit",
+    "price": 250,
+    "catetory": "women",
+    "description": "طقم هوت شورت وكت خامه طريه شعيرات قطن تلبيس one sizeمن 50:85 كيلو \n\nطريه جدا فاللبس موديل تريندي شيك وقوي جدا بتلوين مميز",
+    "colors": [
+      "بينك"
+    ],
+    "sizes": [
+      "ONE SIZE من 85:50 كيلو"
+    ],
+    "old_price": 420
+  },
+  {
+    "id": 8,
+    "img": "img/product/IMG_3727.JPG",
+    "images": [
+      "img/product/IMG_3727.JPG",
+      "img/product/IMG_3729.JPG",
+      "img/product/IMG_3731.JPG",
+      "img/product/IMG_3733.JPG",
+      "img/product/IMG_3732.JPG"
+    ],
+    "name": "بنطلون كتان",
+    "price": 450,
+    "catetory": "men",
+    "description": "بنطلون كتان اسباني\n\nخامات واكسسوارات مستورده \n\nتقفيل عالى الجودة \n\nاستايل مناسب لجميع المناسبات\n\nتلبيس من اول 65كيلو لحد 105 كيلو",
+    "colors": [
+      "اسود",
+      "اوف وايت",
+      "كحلي",
+      "بني",
+      "زيتى"
+    ],
+    "sizes": [
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "old_price": 520
+  },
+  {
+    "id": 9,
+    "img": "img/product/1.jpg",
+    "images": [
+      "img/product/1.jpg"
+    ],
+    "name": "بيجامة ستان حريمي",
+    "price": 550,
+    "catetory": "women",
+    "description": "بيجامة ستان حريمي شيك جدا\n\nالخامة : ستان مستورد",
+    "colors": [
+      "مينت جرين"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ]
+  },
+  {
+    "id": 10,
+    "img": "img/product/4.png",
+    "images": [
+      "img/product/4.png",
+      "img/product/3.png",
+      "img/product/2.png",
+      "img/product/1.png"
+    ],
+    "name": "طقم هوت شورت فيونكة",
+    "price": 250,
+    "catetory": "women",
+    "description": "طقم هوت شورت مكون من تيشرت + شورت\n\nخامة شعيرات 80 % بملمس قطن ناعم\n\nتلبيس فري سايز\n\n60 - 80 kg",
+    "colors": [
+      "احمر",
+      "اسود"
+    ],
+    "sizes": [
+      "فري سايز"
+    ]
+  },
+  {
+    "id": 11,
+    "img": "img/product/DSC03568.png",
+    "images": [
+      "img/product/DSC03568.png",
+      "img/product/DSC03560.png",
+      "img/product/DSC03570.png",
+      "img/product/DSC03566.png",
+      "img/product/DSC03562.png",
+      "img/product/DSC03564.png"
+    ],
+    "name": "ترينج on cloud",
+    "price": 550,
+    "catetory": "men",
+    "description": "رينج كامل يجمع بين الشياكة، الراحة، والخامة اللي تعيش معاك! الطقم متصمم عشان يديك أفضل تجربة لبس بمواصفات  عالية الجوده \n\nترينج شيك  ومريح جدا تقدر تخرج بيه .. مناسب جدا للجيم . وللاستخدام اليومي تقدر تستخدم التيشرت لوحده والبنطلون لوحده شيك جدا ",
+    "colors": [
+      "اسود",
+      "زيتى",
+      "ابيض",
+      "احمر",
+      "كحلي",
+      "اصفر"
+    ],
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "old_price": 750
+  },
+  {
+    "id": 12,
+    "img": "img/product/IMG_20260715_231321.png",
+    "images": [
+      "img/product/IMG_20260715_231321.png",
+      "img/product/IMG_20260715_231341.png"
+    ],
+    "name": "تيشرت Dior أنترلوك قطن صافي",
+    "price": 500,
+    "catetory": "men",
+    "description": "خامة أنترلوك (قطن 100%):  خامه قطن عالي الجودة، معالج ضد الوبر والانكماش  ، نعومة فائقة على الجلد مع قدرة ممتازة على التنفس وامتصاص الرطوبة.\n\nالقوام المثالي: الخامة \"طرية\" جداً في ملمسها، لكنها \"واقفة\" وتحافظ على شكلها لتعطيك المظهر الفخم الذي تبحث عنه.\n\nأفضل تقفيل: اهتمام دقيق بكل التفاصيل، من خياطة الرقبة حتى الأكمام، لضمان متانة القطعة حتى مع الغسيل المتكرر.",
+    "colors": [
+      "أبيض",
+      "اسود"
+    ],
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ]
+  },
+  {
+    "id": 13,
+    "img": "img/product/IMG_3192.PNG",
+    "images": [
+      "img/product/IMG_3192.PNG",
+      "img/product/DSC08164.png",
+      "img/product/DSC08163.png",
+      "img/product/DSC08165.png",
+      "img/product/IMG_3197.PNG",
+      "img/product/IMG_3195.PNG"
+    ],
+    "name": "soft classic",
+    "price": 420,
+    "catetory": "men",
+    "description": "نطلون سوفت كلاسيك قصه تركى \nالخامات سوفت مستور عالى الجوده \nضمان ضد الوبره والانكماش والبهتان",
+    "colors": [
+      "اسود",
+      "بيج",
+      "كحلي"
+    ],
+    "sizes": [
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ]
+  },
+  {
+    "id": 14,
+    "img": "img/product/DSC03338.png",
+    "images": [
+      "img/product/DSC03338.png",
+      "img/product/DSC03336.png",
+      "img/product/DSC03337.png",
+      "img/product/DSC03335.png"
+    ],
+    "name": "Nike SV99",
+    "price": 550,
+    "catetory": "women",
+    "description": "كوتشي Nike\n\nفوندي مستورد عالي الجودة\n\nنعل انسيرت خفيف الوزن \n\nفرش طبي \n\nسهل الارتداء واللبس \n\nسهل التنضيف \n\nبطانه ناعمه\n\nملحوظة : لو العميل بيلبس 37 ياخد 38\n\nتلبيس ضيق",
+    "colors": [
+      "اسود",
+      "رمادي",
+      "بيج"
+    ],
+    "sizes": [
+      "38",
+      "39",
+      "40",
+      "41",
+      "42"
+    ]
+  },
+  {
+    "id": 15,
+    "img": "img/product/IMG_0532.jpg",
+    "images": [
+      "img/product/IMG_0532.jpg"
+    ],
+    "name": "طقم هوت شورت وكت",
+    "price": 250,
+    "catetory": "women",
+    "description": "طقم هوت شورت وكت  خامه طريه بنسبة قطن  تلبيس one size من  50:85 كيلو \n\nطريه جدا فاللبس  موديل تريندي  شيك وقوي جدا بتلوين مميز ",
+    "colors": [
+      "أبيض"
+    ],
+    "sizes": [
+      "one size من  50:85 كيلو"
+    ]
+  }
+]

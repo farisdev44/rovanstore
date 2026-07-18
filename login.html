@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - ROVAN</title>
+    <link rel="icon" type="image/ico" href="img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <style>
+        /* ===== LOGIN PAGE - STANDALONE CSS ===== */
+/* Completely independent - no project dependencies */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+
+/* ===== CSS VARIABLES ===== */
+:root {
+    --primary: #4364f7;
+    --primary-dark: #2a4fd8;
+    --primary-light: #6b8cff;
+    --primary-glow: rgba(67, 100, 247, 0.15);
+    --accent: #e91e63;
+    --success: #28a745;
+    --error: #e51a1a;
+    --error-bg: #fef2f2;
+    --text-dark: #0f172a;
+    --text-medium: #475569;
+    --text-light: #94a3b8;
+    --text-muted: #cbd5e1;
+    --border: #e2e8f0;
+    --border-focus: #4364f7;
+    --bg-page: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    --bg-card: #ffffff;
+    --bg-input: #f8fafc;
+    --bg-input-hover: #f1f5f9;
+    --shadow-card: 0 25px 80px rgba(0, 0, 0, 0.15), 0 10px 30px rgba(0, 0, 0, 0.1);
+    --shadow-btn: 0 8px 25px rgba(67, 100, 247, 0.35);
+    --shadow-btn-hover: 0 12px 35px rgba(67, 100, 247, 0.45);
+    --shadow-google: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-base);
+}
+
+input, button {
+    font-family: inherit;
+    border: none;
+    outline: none;
+}
+
+/* ===== AUTH PAGE LAYOUT ===== */
+.lg-auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-page);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.lg-auth-page::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+    animation: lg-float 8s ease-in-out infinite;
+}
+
+.lg-auth-page::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: lg-pulse-glow 6s ease-in-out infinite;
+}
+
+@keyframes lg-float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(30px, -30px) rotate(2deg); }
+    66% { transform: translate(-20px, 20px) rotate(-1deg); }
+}
+
+@keyframes lg-pulse-glow {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+/* ===== AUTH BOX ===== */
+.lg-auth-box {
+    background: var(--bg-card);
+    padding: 48px 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    width: 100%;
+    max-width: 440px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    animation: lg-slideUp 0.6s ease;
+}
+
+@keyframes lg-slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.lg-auth-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-light), var(--accent));
+    background-size: 200% 100%;
+    animation: lg-gradient-shift 3s ease infinite;
+}
+
+@keyframes lg-gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* ===== LOGO ===== */
+.lg-logo {
+    text-align: center;
+    margin-bottom: 28px;
+    position: relative;
+}
+
+.lg-logo::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    border-radius: 2px;
+}
+
+.lg-logo img {
+    width: 140px;
+    margin: 0 auto;
+    transition: var(--transition-base);
+}
+
+.lg-logo img:hover {
+    transform: scale(1.05);
+}
+
+/* ===== HEADING ===== */
+.lg-auth-box h2 {
+    text-align: center;
+    margin-bottom: 32px;
+    color: var(--text-dark);
+    font-size: 26px;
+    font-weight: 800;
+    position: relative;
+}
+
+/* ===== INPUT GROUP ===== */
+.lg-input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.lg-input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+    font-size: 14px;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.lg-input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 15px;
+    transition: var(--transition-base);
+    background: var(--bg-input);
+    color: var(--text-dark);
+}
+
+.lg-input-group input::placeholder {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.lg-input-group input:hover {
+    border-color: var(--text-muted);
+    background: var(--bg-input-hover);
+}
+
+.lg-input-group input:focus {
+    border-color: var(--border-focus);
+    background: var(--bg-card);
+    box-shadow: 0 0 0 4px var(--primary-glow);
+}
+
+.lg-input-group input:disabled {
+    background: #f1f5f9;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* ===== LABEL ROW (for forgot password link) ===== */
+.lg-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.lg-forgot-link {
+    font-size: 13px;
+    color: var(--primary);
+    font-weight: 600;
+    position: relative;
+}
+
+.lg-forgot-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: var(--transition-base);
+    border-radius: 1px;
+}
+
+.lg-forgot-link:hover::after {
+    width: 100%;
+}
+
+.lg-forgot-link:hover {
+    color: var(--primary-dark);
+}
+
+/* ===== SUBMIT BUTTON ===== */
+.lg-submit-btn {
+    width: 100%;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-base);
+    margin-top: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+}
+
+.lg-submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    transition: var(--transition-slow);
+}
+
+.lg-submit-btn:hover::before {
+    left: 100%;
+}
+
+.lg-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-btn-hover);
+}
+
+.lg-submit-btn:active {
+    transform: translateY(0);
+}
+
+.lg-submit-btn:disabled {
+    background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.lg-submit-btn:disabled::before {
+    display: none;
+}
+
+/* ===== DIVIDER ===== */
+.lg-divider {
+    text-align: center;
+    margin: 28px 0;
+    position: relative;
+}
+
+.lg-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.lg-divider span {
+    background: var(--bg-card);
+    padding: 0 20px;
+    position: relative;
+    color: var(--text-light);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* ===== GOOGLE BUTTON ===== */
+.lg-google-btn {
+    width: 100%;
+    padding: 14px 20px;
+    background: var(--bg-card);
+    color: var(--text-dark);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.lg-google-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(67,100,247,0.03) 0%, rgba(233,30,99,0.03) 100%);
+    opacity: 0;
+    transition: var(--transition-base);
+}
+
+.lg-google-btn:hover::before {
+    opacity: 1;
+}
+
+.lg-google-btn:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-google);
+    transform: translateY(-1px);
+}
+
+.lg-google-btn:active {
+    transform: translateY(0);
+}
+
+.lg-google-btn img {
+    width: 22px;
+    height: 22px;
+    position: relative;
+    z-index: 1;
+}
+
+.lg-google-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== SWITCH AUTH ===== */
+.lg-switch-auth {
+    text-align: center;
+    margin-top: 28px;
+    color: var(--text-medium);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.lg-switch-auth a {
+    color: var(--primary);
+    font-weight: 700;
+    position: relative;
+}
+
+.lg-switch-auth a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: var(--transition-base);
+    border-radius: 1px;
+}
+
+.lg-switch-auth a:hover::after {
+    width: 100%;
+}
+
+.lg-switch-auth a:hover {
+    color: var(--primary-dark);
+}
+
+/* ===== ERROR MESSAGE ===== */
+.lg-error-msg {
+    color: var(--error);
+    font-size: 13px;
+    margin-top: 8px;
+    display: none;
+    text-align: right;
+    padding: 12px 14px;
+    background: var(--error-bg);
+    border-radius: var(--radius-sm);
+    border-right: 3px solid var(--error);
+    line-height: 1.6;
+    font-weight: 500;
+    animation: lg-shake 0.4s ease;
+}
+
+.lg-error-msg.show {
+    display: block;
+}
+
+@keyframes lg-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+}
+
+/* ===== LOADING ===== */
+.lg-loading {
+    display: none;
+    text-align: center;
+    margin-top: 16px;
+}
+
+.lg-loading i {
+    color: var(--primary);
+    font-size: 22px;
+    animation: lg-spin 1s linear infinite;
+}
+
+@keyframes lg-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+    .lg-auth-page {
+        padding: 0;
+        background: var(--bg-card);
+    }
+
+    .lg-auth-page::before,
+    .lg-auth-page::after {
+        display: none;
+    }
+
+    .lg-auth-box {
+        padding: 36px 24px;
+        border-radius: 0;
+        box-shadow: none;
+        max-width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .lg-auth-box::before {
+        display: none;
+    }
+
+    .lg-logo img {
+        width: 120px;
+    }
+
+    .lg-auth-box h2 {
+        font-size: 22px;
+        margin-bottom: 24px;
+    }
+
+    .lg-input-group input {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+
+    .lg-submit-btn,
+    .lg-google-btn {
+        padding: 13px 16px;
+        font-size: 15px;
+    }
+
+    .lg-divider {
+        margin: 22px 0;
+    }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <div class="lg-auth-page">
+        <div class="lg-auth-box">
+            <div class="lg-logo">
+                <img src="img/logo.png" alt="ROVAN">
+            </div>
+            <h2>مرحباً بعودتك</h2>
+            <form id="lg-login-form">
+                <div class="lg-input-group">
+                    <label for="lg-email">البريد الإلكتروني</label>
+                    <input type="email" id="lg-email" placeholder="example@email.com" required autocomplete="email">
+                </div>
+                <div class="lg-input-group">
+                    <div class="lg-label-row">
+                        <label for="lg-password">كلمة المرور</label>
+                        <a href="forgot-password.html" class="lg-forgot-link">نسيت كلمة المرور؟</a>
+                    </div>
+                    <input type="password" id="lg-password" placeholder="أدخل كلمة المرور" required autocomplete="current-password">
+                    <p class="lg-error-msg" id="lg-error-msg"></p>
+                </div>
+                <button type="submit" class="lg-submit-btn" id="lg-submit-btn">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    تسجيل الدخول
+                </button>
+                <div class="lg-loading" id="lg-loading">
+                    <i class="fa-solid fa-circle-notch"></i>
+                </div>
+            </form>
+
+            <div class="lg-divider">
+                <span>أو</span>
+            </div>
+
+            <button class="lg-google-btn" id="lg-google-login">
+                <img src="https://www.google.com/favicon.ico" alt="Google">
+                <span>الدخول بحساب Google</span>
+            </button>
+
+            <p class="lg-switch-auth">
+                ليس لديك حساب؟ <a href="signup.html">إنشاء حساب</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyASJ7cJKFskjkY8BomxZZZHQAaBYPIFNs8",
+            authDomain: "rovan-store.firebaseapp.com",
+            databaseURL: "https://rovan-store-default-rtdb.firebaseio.com",
+            projectId: "rovan-store",
+            storageBucket: "rovan-store.firebasestorage.app",
+            messagingSenderId: "24046570512",
+            appId: "1:24046570512:web:b5b7f5bc47ffc112838e95",
+            measurementId: "G-YYV1X1T9G8"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
+
+        const form = document.getElementById('lg-login-form');
+        const errorMsg = document.getElementById('lg-error-msg');
+        const loading = document.getElementById('lg-loading');
+        const submitBtn = document.getElementById('lg-submit-btn');
+
+        // Check if already logged in
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                window.location.href = 'index.html';
+            }
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            errorMsg.classList.remove('show');
+            loading.style.display = 'block';
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> جاري الدخول...';
+
+            const email = document.getElementById('lg-email').value;
+            const password = document.getElementById('lg-password').value;
+
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+                window.location.href = 'index.html';
+            } catch (error) {
+                loading.style.display = 'none';
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i> تسجيل الدخول';
+
+                errorMsg.classList.add('show');
+                switch(error.code) {
+                    case 'auth/user-not-found':
+                        errorMsg.textContent = '❌ لا يوجد حساب بهذا البريد الإلكتروني.';
+                        break;
+                    case 'auth/wrong-password':
+                        errorMsg.textContent = '❌ كلمة المرور غير صحيحة.';
+                        break;
+                    case 'auth/invalid-email':
+                        errorMsg.textContent = '❌ البريد الإلكتروني غير صالح.';
+                        break;
+                    case 'auth/too-many-requests':
+                        errorMsg.textContent = '❌ تم حظر الحساب مؤقتاً بسبب محاولات كثيرة. حاول لاحقاً.';
+                        break;
+                    default:
+                        errorMsg.textContent = '❌ ' + error.message;
+                }
+            }
+        });
+
+        document.getElementById('lg-google-login').addEventListener('click', async () => {
+            const btn = document.getElementById('lg-google-login');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> جاري الدخول...';
+
+            try {
+                await signInWithPopup(auth, provider);
+                window.location.href = 'index.html';
+            } catch (error) {
+                btn.disabled = false;
+                btn.innerHTML = '<img src="https://www.google.com/favicon.ico" alt="Google"><span>الدخول بحساب Google</span>';
+                alert(error.message);
+            }
+        });
+    </script>
+</body>
+</html>

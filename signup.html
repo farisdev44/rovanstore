@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب - ROVAN</title>
+    <link rel="icon" type="image/ico" href="img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <style>
+        /* ===== SIGNUP PAGE - STANDALONE CSS ===== */
+/* Completely independent - no project dependencies */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+
+/* ===== CSS VARIABLES ===== */
+:root {
+    --primary: #4364f7;
+    --primary-dark: #2a4fd8;
+    --primary-light: #6b8cff;
+    --primary-glow: rgba(67, 100, 247, 0.15);
+    --accent: #e91e63;
+    --success: #28a745;
+    --error: #e51a1a;
+    --error-bg: #fef2f2;
+    --text-dark: #0f172a;
+    --text-medium: #475569;
+    --text-light: #94a3b8;
+    --text-muted: #cbd5e1;
+    --border: #e2e8f0;
+    --border-focus: #4364f7;
+    --bg-page: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+    --bg-card: #ffffff;
+    --bg-input: #f8fafc;
+    --bg-input-hover: #f1f5f9;
+    --shadow-card: 0 25px 80px rgba(0, 0, 0, 0.15), 0 10px 30px rgba(0, 0, 0, 0.1);
+    --shadow-btn: 0 8px 25px rgba(67, 100, 247, 0.35);
+    --shadow-btn-hover: 0 12px 35px rgba(67, 100, 247, 0.45);
+    --shadow-google: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-base);
+}
+
+input, button {
+    font-family: inherit;
+    border: none;
+    outline: none;
+}
+
+/* ===== AUTH PAGE LAYOUT ===== */
+.su-auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-page);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.su-auth-page::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -30%;
+    width: 800px;
+    height: 800px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: su-float-orb 10s ease-in-out infinite;
+}
+
+.su-auth-page::after {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    left: -40%;
+    width: 600px;
+    height: 600px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: su-float-orb 8s ease-in-out infinite reverse;
+}
+
+@keyframes su-float-orb {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(40px, -30px) scale(1.05); }
+    66% { transform: translate(-30px, 20px) scale(0.95); }
+}
+
+/* ===== AUTH BOX ===== */
+.su-auth-box {
+    background: var(--bg-card);
+    padding: 44px 36px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    width: 100%;
+    max-width: 460px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    animation: su-slideUp 0.6s ease;
+}
+
+@keyframes su-slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.su-auth-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--primary), var(--primary-light));
+    background-size: 200% 100%;
+    animation: su-gradient-shift 3s ease infinite;
+}
+
+@keyframes su-gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* ===== LOGO ===== */
+.su-logo {
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.su-logo::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--primary));
+    border-radius: 2px;
+}
+
+.su-logo img {
+    width: 130px;
+    margin: 0 auto;
+    transition: var(--transition-base);
+}
+
+.su-logo img:hover {
+    transform: scale(1.05);
+}
+
+/* ===== HEADING ===== */
+.su-auth-box h2 {
+    text-align: center;
+    margin-bottom: 28px;
+    color: var(--text-dark);
+    font-size: 24px;
+    font-weight: 800;
+}
+
+/* ===== INPUT GROUP ===== */
+.su-input-group {
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.su-input-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--text-dark);
+    font-size: 14px;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.su-input-group input {
+    width: 100%;
+    padding: 13px 16px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 15px;
+    transition: var(--transition-base);
+    background: var(--bg-input);
+    color: var(--text-dark);
+}
+
+.su-input-group input::placeholder {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.su-input-group input:hover {
+    border-color: var(--text-muted);
+    background: var(--bg-input-hover);
+}
+
+.su-input-group input:focus {
+    border-color: var(--border-focus);
+    background: var(--bg-card);
+    box-shadow: 0 0 0 4px var(--primary-glow);
+}
+
+.su-input-group input:disabled {
+    background: #f1f5f9;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Password hint */
+.su-input-group .su-hint {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 4px;
+    display: block;
+}
+
+/* ===== FORGOT LINK INLINE ===== */
+.su-forgot-inline {
+    text-align: right;
+    margin: -8px 0 12px;
+}
+
+.su-forgot-inline a {
+    font-size: 13px;
+    color: var(--primary);
+    font-weight: 600;
+    position: relative;
+}
+
+.su-forgot-inline a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: var(--transition-base);
+}
+
+.su-forgot-inline a:hover::after {
+    width: 100%;
+}
+
+/* ===== SUBMIT BUTTON ===== */
+.su-submit-btn {
+    width: 100%;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-base);
+    margin-top: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+}
+
+.su-submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    transition: var(--transition-slow);
+}
+
+.su-submit-btn:hover::before {
+    left: 100%;
+}
+
+.su-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-btn-hover);
+}
+
+.su-submit-btn:active {
+    transform: translateY(0);
+}
+
+.su-submit-btn:disabled {
+    background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.su-submit-btn:disabled::before {
+    display: none;
+}
+
+/* ===== DIVIDER ===== */
+.su-divider {
+    text-align: center;
+    margin: 24px 0;
+    position: relative;
+}
+
+.su-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.su-divider span {
+    background: var(--bg-card);
+    padding: 0 20px;
+    position: relative;
+    color: var(--text-light);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* ===== GOOGLE BUTTON ===== */
+.su-google-btn {
+    width: 100%;
+    padding: 14px 20px;
+    background: var(--bg-card);
+    color: var(--text-dark);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.su-google-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(67,100,247,0.03) 0%, rgba(233,30,99,0.03) 100%);
+    opacity: 0;
+    transition: var(--transition-base);
+}
+
+.su-google-btn:hover::before {
+    opacity: 1;
+}
+
+.su-google-btn:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-google);
+    transform: translateY(-1px);
+}
+
+.su-google-btn:active {
+    transform: translateY(0);
+}
+
+.su-google-btn img {
+    width: 22px;
+    height: 22px;
+    position: relative;
+    z-index: 1;
+}
+
+.su-google-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== SWITCH AUTH ===== */
+.su-switch-auth {
+    text-align: center;
+    margin-top: 24px;
+    color: var(--text-medium);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.su-switch-auth a {
+    color: var(--primary);
+    font-weight: 700;
+    position: relative;
+}
+
+.su-switch-auth a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: var(--transition-base);
+    border-radius: 1px;
+}
+
+.su-switch-auth a:hover::after {
+    width: 100%;
+}
+
+.su-switch-auth a:hover {
+    color: var(--primary-dark);
+}
+
+/* ===== ERROR MESSAGE ===== */
+.su-error-msg {
+    color: var(--error);
+    font-size: 13px;
+    margin-top: 6px;
+    display: none;
+    text-align: right;
+    padding: 12px 14px;
+    background: var(--error-bg);
+    border-radius: var(--radius-sm);
+    border-right: 3px solid var(--error);
+    line-height: 1.6;
+    font-weight: 500;
+    animation: su-shake 0.4s ease;
+}
+
+.su-error-msg.show {
+    display: block;
+}
+
+@keyframes su-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+}
+
+/* ===== LOADING ===== */
+.su-loading {
+    display: none;
+    text-align: center;
+    margin-top: 14px;
+}
+
+.su-loading i {
+    color: var(--primary);
+    font-size: 22px;
+    animation: su-spin 1s linear infinite;
+}
+
+@keyframes su-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+    .su-auth-page {
+        padding: 0;
+        background: var(--bg-card);
+    }
+
+    .su-auth-page::before,
+    .su-auth-page::after {
+        display: none;
+    }
+
+    .su-auth-box {
+        padding: 32px 20px;
+        border-radius: 0;
+        box-shadow: none;
+        max-width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .su-auth-box::before {
+        display: none;
+    }
+
+    .su-logo img {
+        width: 110px;
+    }
+
+    .su-auth-box h2 {
+        font-size: 20px;
+        margin-bottom: 22px;
+    }
+
+    .su-input-group input {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+
+    .su-submit-btn,
+    .su-google-btn {
+        padding: 13px 16px;
+        font-size: 15px;
+    }
+
+    .su-divider {
+        margin: 20px 0;
+    }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+    </style>
+<base target="_parent">
+</head>
+<body>
+    <div class="su-auth-page">
+        <div class="su-auth-box">
+            <div class="su-logo">
+                <img src="img/logo.png" alt="ROVAN">
+            </div>
+            <h2>إنشاء حساب جديد</h2>
+            <form id="su-signup-form">
+                <div class="su-input-group">
+                    <label for="su-name">الاسم الكامل</label>
+                    <input type="text" id="su-name" placeholder="أدخل اسمك الكامل" required autocomplete="name">
+                </div>
+                <div class="su-input-group">
+                    <label for="su-email">البريد الإلكتروني</label>
+                    <input type="email" id="su-email" placeholder="example@email.com" required autocomplete="email">
+                </div>
+                <div class="su-input-group">
+                    <label for="su-password">كلمة المرور</label>
+                    <input type="password" id="su-password" placeholder="6 أحرف على الأقل" required minlength="6" autocomplete="new-password">
+                    <span class="su-hint">يجب أن تكون 6 أحرف على الأقل</span>
+                </div>
+                <div class="su-input-group">
+                    <label for="su-confirm-password">تأكيد كلمة المرور</label>
+                    <input type="password" id="su-confirm-password" placeholder="أعد كتابة كلمة المرور" required autocomplete="new-password">
+                    <p class="su-error-msg" id="su-error-msg"></p>
+                </div>
+
+                <button type="submit" class="su-submit-btn" id="su-submit-btn">
+                    <i class="fa-solid fa-user-plus"></i>
+                    إنشاء الحساب
+                </button>
+                <div class="su-loading" id="su-loading">
+                    <i class="fa-solid fa-circle-notch"></i>
+                </div>
+            </form>
+
+            <div class="su-divider">
+                <span>أو</span>
+            </div>
+
+            <button class="su-google-btn" id="su-google-signup">
+                <img src="https://www.google.com/favicon.ico" alt="Google">
+                <span>التسجيل بحساب Google</span>
+            </button>
+
+            <p class="su-switch-auth">
+                لديك حساب بالفعل؟ <a href="login.html">تسجيل الدخول</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateProfile, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-auth.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyASJ7cJKFskjkY8BomxZZZHQAaBYPIFNs8",
+            authDomain: "rovan-store.firebaseapp.com",
+            databaseURL: "https://rovan-store-default-rtdb.firebaseio.com",
+            projectId: "rovan-store",
+            storageBucket: "rovan-store.firebasestorage.app",
+            messagingSenderId: "24046570512",
+            appId: "1:24046570512:web:b5b7f5bc47ffc112838e95",
+            measurementId: "G-YYV1X1T9G8"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const provider = new GoogleAuthProvider();
+
+        const form = document.getElementById('su-signup-form');
+        const errorMsg = document.getElementById('su-error-msg');
+        const loading = document.getElementById('su-loading');
+        const submitBtn = document.getElementById('su-submit-btn');
+
+        // Check if already logged in
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                window.location.href = 'index.html';
+            }
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            errorMsg.classList.remove('show');
+            loading.style.display = 'block';
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> جاري الإنشاء...';
+
+            const name = document.getElementById('su-name').value.trim();
+            const email = document.getElementById('su-email').value.trim();
+            const password = document.getElementById('su-password').value;
+            const confirmPassword = document.getElementById('su-confirm-password').value;
+
+            if (password !== confirmPassword) {
+                loading.style.display = 'none';
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa-solid fa-user-plus"></i> إنشاء الحساب';
+                errorMsg.classList.add('show');
+                errorMsg.textContent = '❌ كلمتا المرور غير متطابقتين!';
+                return;
+            }
+
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+                // Update profile name
+                await updateProfile(userCredential.user, { displayName: name });
+
+                // Save user data to Firestore
+                await setDoc(doc(db, "users", userCredential.user.uid), {
+                    name: name,
+                    email: email,
+                    createdAt: new Date().toISOString(),
+                    uid: userCredential.user.uid
+                });
+
+                window.location.href = 'index.html';
+            } catch (error) {
+                loading.style.display = 'none';
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa-solid fa-user-plus"></i> إنشاء الحساب';
+
+                errorMsg.classList.add('show');
+                switch(error.code) {
+                    case 'auth/email-already-in-use':
+                        errorMsg.textContent = '❌ هذا البريد الإلكتروني مسجل بالفعل.';
+                        break;
+                    case 'auth/invalid-email':
+                        errorMsg.textContent = '❌ البريد الإلكتروني غير صالح.';
+                        break;
+                    case 'auth/weak-password':
+                        errorMsg.textContent = '❌ كلمة المرور ضعيفة (6 أحرف على الأقل).';
+                        break;
+                    default:
+                        errorMsg.textContent = '❌ ' + error.message;
+                }
+            }
+        });
+
+        document.getElementById('su-google-signup').addEventListener('click', async () => {
+            const btn = document.getElementById('su-google-signup');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> جاري التسجيل...';
+
+            try {
+                const result = await signInWithPopup(auth, provider);
+                const user = result.user;
+
+                // Save to Firestore
+                await setDoc(doc(db, "users", user.uid), {
+                    name: user.displayName || 'Google User',
+                    email: user.email,
+                    createdAt: new Date().toISOString(),
+                    uid: user.uid,
+                    provider: 'google'
+                }, { merge: true });
+
+                window.location.href = 'index.html';
+            } catch (error) {
+                btn.disabled = false;
+                btn.innerHTML = '<img src="https://www.google.com/favicon.ico" alt="Google"><span>التسجيل بحساب Google</span>';
+                alert(error.message);
+            }
+        });
+    </script>
+</body>
+</html>
