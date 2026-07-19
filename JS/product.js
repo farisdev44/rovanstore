@@ -49,7 +49,7 @@ function renderProduct(product) {
     if(nameEl) nameEl.textContent = product.name;
     if(priceEl) priceEl.textContent = product.price + ' جنيه';
     if(categoryEl) {
-        const catMap = {men: 'رجالي', women: 'حريمي', kids: 'أطفالي'};
+        const catMap = {men: 'رجالي', women: 'حريمي', kids: 'أطفال'};
         categoryEl.textContent = catMap[product.catetory] || product.catetory;
     }
     if(descEl) descEl.textContent = product.description || 'منتج عالي الجودة من متجر ROVAN.';

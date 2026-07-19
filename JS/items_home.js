@@ -20,7 +20,7 @@ fetch('products.json')
     function getCatLabel(cat) {
         if (cat === 'men') return 'رجالي';
         if (cat === 'women') return 'حريمي';
-        if (cat === 'kids') return 'أطفالي';
+        if (cat === 'kids') return 'أطفال';
         return cat;
     }
 
@@ -153,7 +153,7 @@ fetch('products.json')
                 swiper_kids.innerHTML += `
                     <div class="swiper-slide product">
                         ${percent_disc_div}
-                        <span class="cat-badge kids">أطفالي</span>
+                        <span class="cat-badge kids">أطفال</span>
                         <div class="img_product">
                             <a href="product.html?id=${product.id}"><img src="${product.images ? product.images[0] : product.img}" alt="${product.name}"></a>
                         </div>
